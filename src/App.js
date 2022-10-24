@@ -2,16 +2,21 @@
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import Posts from "./components/posts";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 
 const store = configureStore();
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Posts />
-    </Provider>
+    <>
+      <Navbar />
+      <Provider store={store}>
+        <Posts />
+      </Provider>
+
+    </>
   );
 };
-console.log('https://api.themoviedb.org/3/movie/550?api_key=${process.env.API_KEY}')
+
 export default App;

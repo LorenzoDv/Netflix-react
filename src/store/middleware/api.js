@@ -16,8 +16,9 @@ const api =
                 next(action);
 
                 try {
+
                     const response = await axios.request({
-                        baseURL: "https://api.themoviedb.org/3/movie/550?api_key=e903b3a4057d5852449ac8878ad1732b",
+                        baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_KEY}`,
                         method,
                         data,
                     });

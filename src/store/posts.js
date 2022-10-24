@@ -28,12 +28,12 @@ export default slice.reducer;
 
 const { postsRequested, postsReceived, postsRequestFailed } = slice.actions;
 
-const url = "";
+
 
 export const loadposts = () => (dispatch) => {
     return dispatch(
         apiCallBegan({
-            url,
+
             onStart: postsRequested.type,
             onSuccess: postsReceived.type,
             onError: postsRequestFailed.type,
