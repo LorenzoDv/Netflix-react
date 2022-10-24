@@ -5,7 +5,8 @@ import { useEffect } from "react";
 const Posts = () => {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.list);
-    console.log(posts)
+    const ApiFetch = []
+    ApiFetch.push(posts)
 
     useEffect(() => {
         dispatch(loadposts());
@@ -15,8 +16,8 @@ const Posts = () => {
         <div>
             <h1>Posts</h1>
             <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>{post.budget}</li>
+                {ApiFetch.map((post) => (
+                    <li key={post.id}>{post.title}</li>
                 ))}
             </ul>
         </div>
@@ -24,5 +25,3 @@ const Posts = () => {
 };
 
 export default Posts;
-
-

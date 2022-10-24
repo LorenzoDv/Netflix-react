@@ -8,7 +8,7 @@ const api =
             async (action) => {
                 if (action.type !== actions.apiCallBegan.type) return next(action);
 
-                const { url, method, data, onStart, onSuccess, onError } =
+                const { method, data, onStart, onSuccess, onError } =
                     action.payload;
 
                 if (onStart) dispatch({ type: onStart });
@@ -17,8 +17,7 @@ const api =
 
                 try {
                     const response = await axios.request({
-                        baseURL: `https://api.themoviedb.org/3/movie/550?api_key=e903b3a4057d5852449ac8878ad1732b`,
-                        url,
+                        baseURL: "https://api.themoviedb.org/3/movie/550?api_key=e903b3a4057d5852449ac8878ad1732b",
                         method,
                         data,
                     });
