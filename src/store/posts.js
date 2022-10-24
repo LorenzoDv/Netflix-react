@@ -33,7 +33,6 @@ const { postsRequested, postsReceived, postsRequestFailed } = slice.actions;
 export const loadposts = () => (dispatch) => {
     return dispatch(
         apiCallBegan({
-
             onStart: postsRequested.type,
             onSuccess: postsReceived.type,
             onError: postsRequestFailed.type,

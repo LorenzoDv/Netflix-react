@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import { loadposts } from "../store/posts";
-import { useEffect } from "react";
-import React from "react";
-import Toprate from "../store/middleware/apitoprate";
+
+import React, { useState, useEffect } from 'react';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,25 +12,23 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
+function Toprate() {
+    const [data, setData] = useState([]);
 
-const Posts = () => {
-    const dispatch = useDispatch();
-    const posts = useSelector((state) => state.list);
-    const ApiFetch = []
-    ApiFetch.push(posts)
-    let PopularMovie = posts.results
-
-
-    if (PopularMovie == undefined) {
-        PopularMovie = [{ title: "test" }]
-    }
     useEffect(() => {
-        dispatch(loadposts());
-    }, [dispatch]);
+        const fetchData = async () => {
+            const res = await fetch(
+                `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}`,
+            );
+            const json = await res.json();
+            setData(json.results);
+        };
+        fetchData();
+    });
 
     return (
         <div className="popu">
-            <h1>Popular</h1>
+            <h1>Top rated</h1>
             <Swiper
 
                 pagination={{ clickable: true }}
@@ -45,7 +41,7 @@ const Posts = () => {
             >
                 <div className="BoddyPopular">
 
-                    {PopularMovie.map((post, elements) => (
+                    {data.map((post, elements) => (
                         <>
                             <SwiperSlide key={elements}>
                                 <div className="Popular" key={elements}>
@@ -59,9 +55,8 @@ const Posts = () => {
                     }
                 </div>
             </Swiper>
-            <Toprate />
         </div >
     );
-};
+}
 
-export default Posts;
+export default Toprate;

@@ -7,6 +7,7 @@ import "./App.css";
 import "../src/components/scss/post.scss"
 
 const store = configureStore();
+console.log(store)
 
 const App = () => {
   return (
