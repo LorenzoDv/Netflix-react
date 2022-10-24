@@ -1,0 +1,25 @@
+.BoddyPopular {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .Popular {
+        width: 250px;
+        margin: 2%;
+
+        p {
+            width: 100%;
+        }
+    }
+}
+
+.popu {
+    h1 {
+        color: white;
+        font-size: 22px;
+        margin-left: 50px;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+    }
+}
