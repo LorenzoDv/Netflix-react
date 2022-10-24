@@ -37,13 +37,15 @@ const Posts = () => {
 
                 pagination={{ clickable: true }}
                 navigation={true}
-                slidesPerView={6}
+                slidesPerView={8}
                 scrollbar={{ draggable: true }}
                 spaceBetween={30}
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
             >
+
                 <div className="BoddyPopular">
+
 
                     {PopularMovie.map((post, elements) => (
                         <>

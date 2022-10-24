@@ -33,7 +33,7 @@ function Toprate() {
 
                 pagination={{ clickable: true }}
                 navigation={true}
-                slidesPerView={6}
+                slidesPerView={8}
                 scrollbar={{ draggable: true }}
                 spaceBetween={30}
                 modules={[Pagination, Navigation]}
