@@ -13,18 +13,17 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 function Toprate() {
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
+
+
+
 
     useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch(
-                `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}`,
-            );
-            const json = await res.json();
-            setData(json.results);
-        };
-        fetchData();
-    });
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}`)
+            .then(response => response.json())
+            // 4. Setting *dogImage* to the image url that we received from the response above
+            .then(data => setData(data.results))
+    }, [])
 
     return (
         <div className="popu">
