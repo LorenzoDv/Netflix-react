@@ -5,16 +5,17 @@ import Posts from "./components/posts";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import "../src/components/scss/post.scss"
+import AppWrapper from '../src/components/Navbar/routing';
 
 const store = configureStore();
-console.log(store)
+
 
 const App = () => {
   return (
     <>
-      <Navbar />
+
       <Provider store={store}>
-        <Posts />
+        <AppWrapper />
       </Provider>
 
     </>

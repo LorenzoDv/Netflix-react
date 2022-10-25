@@ -44,7 +44,7 @@ function Toprate() {
                     {data.map((post, elements) => (
                         <>
                             <SwiperSlide key={elements}>
-                                <div className="Popular" key={elements}>
+                                <div className="Popular" key={elements} >
 
                                     <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
                                 </div>

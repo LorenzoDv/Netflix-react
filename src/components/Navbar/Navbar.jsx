@@ -1,7 +1,11 @@
 import "./css/Navbar.css";
+import {
+    BrowserRouter as Router,
+    NavLink,
+} from "react-router-dom";
 const logo = require('../../assets/img/copyflix_logo.png');
 
-function Navbar () {
+function Navbar() {
     return (
         <>
             <nav>
@@ -11,13 +15,19 @@ function Navbar () {
                             <img src={logo} alt="logo" />
                         </div>
                         <li>
-                            <a href="#">Acceuil</a>
+                            <NavLink to="/">
+                                Acceuil
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="#">Séries</a>
+                            <NavLink to="/Film">
+                                Film
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="#">Films</a>
+                            <NavLink to="/Serie">
+                                Serie
+                            </NavLink>
                         </li>
                         <li>
                             <a href="#">Nouveautés les plus regardées</a>

@@ -2,7 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadposts } from "../store/posts";
 import { useEffect } from "react";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Toprate from "../store/middleware/apitoprate";
+
+import Navbar from "../components/Navbar/Navbar";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -31,38 +34,42 @@ const Posts = () => {
     }, [dispatch]);
 
     return (
-        <div className="popu">
-            <h1>Popular</h1>
-            <Swiper
+        <>
+            <Navbar />
+            <div className="popu">
 
-                pagination={{ clickable: true }}
-                navigation={true}
-                slidesPerView={8}
-                scrollbar={{ draggable: true }}
-                spaceBetween={30}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-            >
+                <h1>Popular</h1>
+                <Swiper
 
-                <div className="BoddyPopular">
+                    pagination={{ clickable: true }}
+                    navigation={true}
+                    slidesPerView={8}
+                    scrollbar={{ draggable: true }}
+                    spaceBetween={30}
+                    modules={[Pagination, Navigation]}
+                    className="mySwiper"
+                >
+
+                    <div className="BoddyPopular">
 
 
-                    {PopularMovie.map((post, elements) => (
-                        <>
-                            <SwiperSlide key={elements}>
-                                <div className="Popular" key={elements}>
+                        {PopularMovie.map((post, elements) => (
+                            <>
+                                <SwiperSlide key={elements}>
+                                    <div className="Popular" key={elements}>
 
-                                    <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
-                                </div>
+                                        <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+                                    </div>
 
-                            </SwiperSlide>
-                        </>
-                    ))
-                    }
-                </div>
-            </Swiper>
-            <Toprate />
-        </div >
+                                </SwiperSlide>
+                            </>
+                        ))
+                        }
+                    </div>
+                </Swiper>
+                <Toprate />
+            </div >
+        </>
     );
 };
 
