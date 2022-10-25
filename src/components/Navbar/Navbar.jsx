@@ -10,7 +10,7 @@ function Navbar() {
         <>
             <nav>
                 <ul>
-                    <div class="left-nav">
+                    <div className="left-nav">
                         <div id="nav-logo">
                             <img src={logo} alt="logo" />
                         </div>
@@ -39,15 +39,15 @@ function Navbar() {
                             <a href="#">Explorer par langue</a>
                         </li>
                     </div>
-                    <div class="right-nav">
+                    <div className="right-nav">
                         <li>
-                            <a href="#"><i class="icon-search"></i></a>
+                            <a href="#"><i className="icon-search"></i></a>
                         </li>
                         <li>
                             <a href="#">DIRECT</a>
                         </li>
                         <li>
-                            <a href="#"><i class="icon-bell"></i></a>
+                            <a href="#"><i className="icon-bell"></i></a>
                         </li>
                     </div>
                 </ul>

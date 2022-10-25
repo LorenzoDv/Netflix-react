@@ -27,7 +27,7 @@ function Toprate() {
 
     return (
         <div className="popu">
-            <h1>Top rated</h1>
+            <h1>Film les mieux notés</h1>
             <Swiper
 
                 pagination={{ clickable: true }}

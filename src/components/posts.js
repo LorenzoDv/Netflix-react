@@ -38,7 +38,7 @@ const Posts = () => {
             <Navbar />
             <div className="popu">
 
-                <h1>Popular</h1>
+                <h1>Les plus gros succès sur Netflix</h1>
                 <Swiper
 
                     pagination={{ clickable: true }}
@@ -55,10 +55,10 @@ const Posts = () => {
 
                         {PopularMovie.map((post, elements) => (
                             <>
-                                <SwiperSlide key={elements}>
-                                    <div className="Popular" key={elements}>
+                                <SwiperSlide key={post.id}>
+                                    <div key={post.id} className="Popular">
 
-                                        <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+                                        <img key={post.id} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
                                     </div>
 
                                 </SwiperSlide>
