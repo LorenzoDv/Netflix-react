@@ -54,6 +54,8 @@
   width: 90%;
   height: 100%;
   cursor: grabbing;
+  z-index: -1;
+  margin-top: 70px;
 }
 
 .swiper-slide {
