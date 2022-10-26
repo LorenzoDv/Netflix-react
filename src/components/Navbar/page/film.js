@@ -1,5 +1,5 @@
 import "../css/Navbar.css";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import Select from 'react-select';
 // Import Swiper styles
@@ -12,17 +12,11 @@ import { Pagination, Navigation } from "swiper";
 import Navbar from "../Navbar";
 import { Form, FormControl, Button } from 'react-bootstrap';
 
-
-
-
 const Film = () => {
     const [movies, setMovies] = useState([]);
     const [selectcat, setSelectcat] = useState([]);
 
-
     let [query, setQuery] = useState('');
-
-
 
     const selectableOptions = [
 
@@ -63,12 +57,9 @@ const Film = () => {
         }
     }
 
-
-
     const changeHandler = (e) => {
         setQuery(e.target.value);
     }
-
 
     const handleChange = (e) => {
 
@@ -95,7 +86,6 @@ const Film = () => {
 
     }
 
-
     return (
         <>
 
@@ -121,9 +111,7 @@ const Film = () => {
             />
             {query ?
                 <>
-
                     <Swiper
-
                         pagination={{ clickable: true }}
                         navigation={true}
                         slidesPerView={8}
@@ -131,9 +119,7 @@ const Film = () => {
                         spaceBetween={30}
                         modules={[Pagination, Navigation]}
                         className="mySwiper"
-
                     >
-
                         <div className="BoddyPopular">
 
                             {movies.map((post, elements) => (

@@ -14,6 +14,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import './slider'
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
@@ -56,21 +57,26 @@ const Posts = () => {
                         {PopularMovie.map((post, elements) => (
                             <>
                                 <SwiperSlide key={post.id}>
-                                    <div key={post.id} className="Popular">
 
-                                        <img key={post.id} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
-                                    </div>
+
+
+                                    <img key={post.id} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+
 
                                 </SwiperSlide>
                             </>
                         ))
                         }
                     </div>
+
                 </Swiper>
+
                 <Toprate />
+
             </div >
         </>
     );
 };
 
 export default Posts;
+
