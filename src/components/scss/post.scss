@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    background-color: #564d4d;
 
     .categs {
         img {
@@ -143,4 +144,12 @@ element.style {
     font-size: 22px;
     margin-left: 84px;
     color: white;
+}
+
+.serie {
+    img {
+        width: 250px;
+        height: 350px;
+        margin: 10px;
+    }
 }

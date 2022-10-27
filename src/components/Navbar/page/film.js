@@ -93,7 +93,7 @@ const Film = () => {
             <Form className="d-flex searchbar" onSubmit={searchMovie} autoComplete="off">
                 <FormControl
                     type="search"
-                    placeholder="Movie Search"
+                    placeholder="Rechercher un film"
                     className="me-2"
                     aria-label="search"
                     name="query"

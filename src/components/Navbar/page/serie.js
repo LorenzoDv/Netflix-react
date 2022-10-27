@@ -1,11 +1,146 @@
 
 import Navbar from "../Navbar";
+
+import "../css/Navbar.css";
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import Select from 'react-select';
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Pagination, Navigation } from "swiper";
+
+import { Form, FormControl, Button } from 'react-bootstrap';
+
 const Serie = () => {
+    const [tv, settv] = useState([]);
+    const [selectcat, setSelectcat] = useState([]);
+
+    let [query, setQuery] = useState('');
+
+    const selectableOptions = [
+
+        { "values": 10759, "label": "Action & Adventure" },
+        { "values": 16, "label": "Animation" },
+        { "values": 35, "label": "Comedy" },
+        { "values": 80, "label": "Crime" },
+        { "values": 99, "label": "Documentary" },
+        { "values": 18, "label": "Drama" },
+        { "values": 10751, "label": "Family" },
+        { "values": 10762, "label": "Kids" },
+        { "values": 9648, "label": "Mystery" },
+        { "values": 10763, "label": "News" },
+        { "values": 10764, "label": "Reality" },
+        { "values": 10765, "label": "Sci-Fi & Fantasy" },
+        { "values": 10766, "label": "Soap" },
+        { "values": 10767, "label": "Talk" },
+        { "values": 10768, "label": "War & Politics" },
+        { "values": 37, "label": "Western" },
+    ]
+
+    const searchtv = async (e) => {
+        e.preventDefault();
+        console.log("Searching");
+        try {
+            const url = `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_KEY}&query=${query}`;
+            const res = await fetch(url);
+            const data = await res.json();
+
+            settv(data.results);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    const changeHandler = (e) => {
+        setQuery(e.target.value);
+    }
+
+    const handleChange = (e) => {
+
+        e.map((index) => console.log(index.values))
+        let categsFinaly = e.map((index) => index.values)
+
+        const firstElement = categsFinaly.shift();
+        const searchCateg = async (e) => {
+
+            console.log("Searching");
+            try {
+                const url = `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_KEY}&&with_genres=${firstElement}`;
+                const res = await fetch(url);
+                const data = await res.json();
+
+
+                setSelectcat(data.results);
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+        searchCateg()
+
+    }
+
     return (
         <>
+
             <Navbar />
-            <h1>Série</h1>
+            <Form className="d-flex searchbar" onSubmit={searchtv} autoComplete="off">
+                <FormControl
+                    type="search"
+                    placeholder="Chercher une série"
+                    className="me-2"
+                    aria-label="search"
+                    name="query"
+                    value={query} onChange={changeHandler}></FormControl>
+                <Button variant="secondary" type="submit"><i className="icon-search"></i></Button>
+            </Form>
+
+            <Select
+                isMulti
+                placeholder="Choisir une Catégorie"
+                onChange={handleChange}
+                className="basic-multi-select"
+                classNamePrefix="select"
+                options={selectableOptions}
+            />
+            {query ?
+                <>
+
+                    <div className="BoddyPopular">
+
+                        {tv.map((post, elements) => (
+                            <>
+                                <div className="serie" key={elements} >
+                                    <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+                                </div>
+                            </>
+                        ))
+                        }
+                    </div>
+
+                </>
+                :
+                <>
+                    <div className="BoddyPopular">
+
+                        {selectcat.map((post, elements) => (
+                            <>
+                                <div className="categs" key={elements} >
+                                    <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+                                </div>
+                            </>
+                        ))
+                        }
+                    </div>
+                </>
+            }
         </>
     )
 };
+
 export default Serie
