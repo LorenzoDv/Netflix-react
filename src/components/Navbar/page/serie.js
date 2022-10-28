@@ -121,7 +121,7 @@ const Serie = () => {
                                 <SwiperSlide className="vignette" key={post.id}>
                                     <div className="itemHover">
                                         <h2>
-                                            {post.title}
+                                            {post.name}
                                         </h2>
                                         <p>
                                             {post.overview === undefined ? "Pas de description" : post.overview.slice(0, 450) + "..."}

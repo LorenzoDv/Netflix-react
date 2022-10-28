@@ -62,7 +62,7 @@ function SerieToprate() {
                             <SwiperSlide className="vignette" key={post.id}>
                                 <div className="itemHover">
                                     <h2>
-                                        {post.title}
+                                        {post.name}
                                     </h2>
                                     <p>
                                         {post.overview > 100 ? post.overview : post.overview.slice(0, 100) + "..."}
