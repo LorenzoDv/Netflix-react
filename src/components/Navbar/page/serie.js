@@ -13,8 +13,6 @@ import "swiper/css/navigation";
 
 import { NavLink } from "react-router-dom";
 
-// import required modules
-import { Pagination, Navigation } from "swiper";
 
 import { Form, FormControl, Button } from 'react-bootstrap';
 
