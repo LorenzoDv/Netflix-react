@@ -6,6 +6,8 @@ import Select from 'react-select';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { NavLink } from "react-router-dom";
+import Toprate from "../../../store/middleware/apitoprate";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
@@ -124,12 +126,22 @@ const Film = () => {
 
                             {movies.map((post, elements) => (
                                 <>
-                                    <SwiperSlide key={elements}>
-                                        <div className="Popular" key={elements} >
-
-                                            <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+                                    <SwiperSlide className="vignette" key={post.id}>
+                                        <div className="itemHover">
+                                            <h2>
+                                                {post.title}
+                                            </h2>
+                                            <p>
+                                                {post.overview === undefined ? "Pas de description" : post.overview.slice(0, 100) + "..."}
+                                            </p>
+                                            <p>
+                                                {post.vote_average}<i className='icon-star-filled rate'></i>
+                                            </p>
+                                            <NavLink to={`/movie/${post.id}`}>
+                                                <button className="btn more">Voir plus</button>
+                                            </NavLink>
                                         </div>
-
+                                        <img key={post.id} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
                                     </SwiperSlide>
                                 </>
                             ))
@@ -144,15 +156,30 @@ const Film = () => {
                         {selectcat.map((post, elements) => (
                             <>
 
-                                <div className="categs" key={elements} >
-                                    <img key={elements} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
-                                </div>
+                                <SwiperSlide className="vignette" key={post.id}>
+                                    <div className="itemHover">
+                                        <h2>
+                                            {post.title}
+                                        </h2>
+                                        <p>
+                                            {post.overview}
+                                        </p>
+                                        <p>
+                                            {post.vote_average}<i className='icon-star-filled rate'></i>
+                                        </p>
+                                        <NavLink to={`/movie/${post.id}`}>
+                                            <button className="btn more">Voir plus</button>
+                                        </NavLink>
+                                    </div>
+                                    <img key={post.id} src={`https://image.tmdb.org/t/p/w500/${post.poster_path}`}></img>
+                                </SwiperSlide>
 
 
                             </>
                         ))
                         }
                     </div>
+                    <Toprate />
                 </>
             }
         </>

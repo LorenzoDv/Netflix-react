@@ -25,16 +25,73 @@
 
 }
 
-
-
 // .swiper-slide img:hover {
 //     background-color: #413b3b;
 //     padding-left: 100%;
 //     padding-right: 100%;
 // }
+.vignette {
+    display: flex;
+    width: 250px;
+    flex-wrap: wrap;
+    margin: 15px;
+}
 
+.vignette img {
+    position: relative;
+
+}
+
+.swiper-button-next {
+    z-index: 999;
+}
+
+.itemHover {
+    color: #f3f3f3;
+    font-size: 12px;
+    text-align: left;
+
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.more {
+    display: flex;
+    float: right;
+    background: none;
+    color: #f3f3f3;
+    border: 1px solid #f3f3f3;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+
+.itemHover p {
+    margin: 0 1em;
+}
+
+.itemHover h2 {
+    text-transform: uppercase;
+    text-align: left;
+    margin: 1em 0 1em 0.75em;
+}
+
+.itemHover:hover {
+    opacity: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    transition: all 0.5s ease;
+}
+
+.rate {
+    margin-top: 2em;
+    font-size: 16px;
+    color: gold;
+}
 
 .popu {
+    z-index: -1;
     user-select: none;
 
     h1 {
@@ -46,6 +103,12 @@
     }
 
 
+}
+
+.css-b62m3t-container {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 999999;
 }
 
 .css-b62m3t-container {

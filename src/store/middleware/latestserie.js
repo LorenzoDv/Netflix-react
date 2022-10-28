@@ -12,22 +12,23 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-function Toprate() {
+function Serielatest() {
     let [data, setData] = useState([]);
-
-
+    const ApiFetch = []
+    ApiFetch.push(data)
+    console.log(data)
 
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}`)
+        fetch(`https://api.themoviedb.org/3/tv/latest?api_key=${process.env.REACT_APP_KEY}`)
             .then(response => response.json())
             // 4. Setting *dogImage* to the image url that we received from the response above
-            .then(data => setData(data.results))
+            .then(data => setData(data))
     }, [])
 
     return (
         <div className="popu">
-            <h1>Film les mieux notés</h1>
+            <h1>Série les mieux notés</h1>
             <Swiper
 
                 pagination={{ clickable: true }}
@@ -40,15 +41,15 @@ function Toprate() {
             >
                 <div className="BoddyPopular">
 
-                    {data.map((post, elements) => (
+                    {ApiFetch.map((post) => (
                         <>
                             <SwiperSlide className="vignette" key={post.id}>
                                 <div className="itemHover">
                                     <h2>
-                                        {post.title}
+                                        {post.name}
                                     </h2>
                                     <p>
-                                        {post.overview > 100 ? post.overview : post.overview.slice(0, 100) + "..."}
+                                        {post.overview}
                                     </p>
                                     <p>
                                         {post.vote_average}<i className='icon-star-filled rate'></i>
@@ -68,4 +69,4 @@ function Toprate() {
     );
 }
 
-export default Toprate;
+export default Serielatest;

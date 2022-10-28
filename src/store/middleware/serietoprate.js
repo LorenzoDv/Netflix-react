@@ -12,14 +12,14 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-function Toprate() {
+function SerieToprate() {
     let [data, setData] = useState([]);
 
 
 
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}`)
+        fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_KEY}`)
             .then(response => response.json())
             // 4. Setting *dogImage* to the image url that we received from the response above
             .then(data => setData(data.results))
@@ -27,7 +27,7 @@ function Toprate() {
 
     return (
         <div className="popu">
-            <h1>Film les mieux notés</h1>
+            <h1>Série les mieux notés</h1>
             <Swiper
 
                 pagination={{ clickable: true }}
@@ -68,4 +68,4 @@ function Toprate() {
     );
 }
 
-export default Toprate;
+export default SerieToprate;

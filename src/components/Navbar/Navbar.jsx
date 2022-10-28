@@ -30,7 +30,10 @@ function Navbar() {
                             </NavLink>
                         </li>
                         <li>
-                            <a href="#">Nouveautés les plus regardées</a>
+                            <NavLink to="/Nouveaute">
+                                Nouveautés les plus regardées
+                            </NavLink>
+
                         </li>
                         <li>
                             <a href="#">Ma liste</a>
