@@ -69,7 +69,7 @@ const Film = () => {
         let categsFinaly = e.map((index) => index.values)
 
         const firstElement = categsFinaly.shift();
-        const searchCateg = async (e) => {
+        const searchCateg = async () => {
 
             console.log("Searching");
             try {

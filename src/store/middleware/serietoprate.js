@@ -21,7 +21,6 @@ function SerieToprate() {
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.REACT_APP_KEY}`)
             .then(response => response.json())
-            // 4. Setting *dogImage* to the image url that we received from the response above
             .then(data => setData(data.results))
     }, [])
 
@@ -37,6 +36,24 @@ function SerieToprate() {
                 spaceBetween={30}
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
+                breakpoints={{
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@0.75": {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    "@1.00": {
+                        slidesPerView: 7,
+                        spaceBetween: 40,
+                    },
+                    "@1.50": {
+                        slidesPerView: 8,
+                        spaceBetween: 50,
+                    },
+                }}
             >
                 <div className="BoddyPopular">
 

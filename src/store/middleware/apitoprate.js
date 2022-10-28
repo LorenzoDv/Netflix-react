@@ -37,6 +37,24 @@ function Toprate() {
                 spaceBetween={30}
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
+                breakpoints={{
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@0.75": {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    "@1.00": {
+                        slidesPerView: 7,
+                        spaceBetween: 40,
+                    },
+                    "@1.50": {
+                        slidesPerView: 8,
+                        spaceBetween: 50,
+                    },
+                }}
             >
                 <div className="BoddyPopular">
 

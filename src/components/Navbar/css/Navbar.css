@@ -4,20 +4,24 @@ nav {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%); 
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 nav ul {
     width: 100vw;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0;
 }
 
 .left-nav {
     display: flex;
     flex-direction: row;
+
+
 }
 
 .right-nav {
@@ -46,4 +50,23 @@ nav ul li a {
 nav ul li a:hover {
     color: #b2b2b2;
     transition: 0.5s ease all;
+}
+
+@media screen and (max-width: 800px) {
+    .left-nav {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 3px;
+        font-size: 15px;
+    }
+
 }
